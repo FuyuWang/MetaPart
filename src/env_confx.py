@@ -10,7 +10,7 @@ import math
 import numpy as np
 
 script_dir = os.path.dirname(__file__)
-module_path = os.path.abspath(os.path.join(script_dir, '../../'))
+module_path = os.path.abspath(os.path.join(script_dir, '../'))
 if module_path not in sys.path:
     sys.path.insert(0,module_path)
 
@@ -23,7 +23,7 @@ class MaestroEnvironment(object):
                  fitness='latency', dataflow="dla",
                  num_pe=4096, l1_size=8000, l2_size=8000):
         super(MaestroEnvironment,self).__init__()
-        dst_path = "../../cost_model/maestro"
+        dst_path = "../cost_model/maestro"
 
         maestro = dst_path
         self._executable = "{}".format(maestro)
@@ -597,8 +597,8 @@ class MaestroEnvironment(object):
             m_type = m_type_dicts[int(dimension[-1])]
         else:
             m_type = "CONV"
-        with open("../../data/dataflow/{}.m".format(dataflow), "r") as fd:
-            with open("../../data/dataflow/dpt.m", "r") as fdpt:
+        with open("../data/dataflow/{}.m".format(dataflow), "r") as fd:
+            with open("../data/dataflow/dpt.m", "r") as fdpt:
                 with open("{}.m".format(m_file), "w") as fo:
                     fo.write("Constant KTileSz {};\n".format(KTileSz))
                     fo.write("Constant CTileSz {};\n".format(CTileSz))

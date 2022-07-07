@@ -10,7 +10,7 @@ import numpy as np
 from collections import deque
 
 script_dir = os.path.dirname(__file__)
-module_path = os.path.abspath(os.path.join(script_dir, '../../'))
+module_path = os.path.abspath(os.path.join(script_dir, '../'))
 if module_path not in sys.path:
     sys.path.insert(0,module_path)
 from env_confx import MaestroEnvironment
@@ -302,7 +302,7 @@ if __name__ == "__main__":
     ADAPT_STEPS = 3
 
     outdir = opt.outdir
-    outdir = os.path.join("../../", outdir)
+    outdir = os.path.join("../", outdir)
 
     first_order= False
     test_models = ['transformer', 'mobilenet_v2', 'resnet50', 'unet']
@@ -330,7 +330,7 @@ if __name__ == "__main__":
         for model in test_models:
             model2sol[model] = {'best_reward': None,
                                 'best_sol': None}
-        m_file_path = "../../data/model/"
+        m_file_path = "../data/model/"
 
         # ============================Do training============================================================================================
         set_seed(opt.seed)
