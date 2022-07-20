@@ -111,7 +111,7 @@ class MaestroEnvironment(object):
                     total_latency.append(-1 * reward[0])
 
             total_latency = np.array(total_latency)
-            if total_latency.max() / total_latency.min() > 100:
+            if total_latency.max() > (total_latency.sum()-total_latency.max()):
                 if total_latency.argmax() == 0:
                     model_defs = model_defs_saved[1:]
                 elif total_latency.argmax() == len(model_defs_saved) - 1:
